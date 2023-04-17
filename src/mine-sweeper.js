@@ -23,9 +23,57 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper( matrix ) {
+
+  let board = [];
+  
+  for( let i = 0; i < matrix.length; i++) {
+    for( let j = 0; j < matrix[i].length; j++) {
+      let arr = [];
+      if(matrix[i - 1]) {
+        if (matrix[i - 1][j] === true) {
+          arr.push(matrix[i - 1][j])
+        }
+        if (matrix[i - 1][j - 1] === true) {
+          arr.push(matrix[i - 1][j - 1])
+        }
+        if (matrix[i - 1][j + 1] === true) {
+          arr.push(matrix[i - 1][j + 1])
+        }
+      }
+      if(matrix[i + 1]) {
+        if (matrix[i + 1][j] === true) {
+          arr.push(matrix[i + 1][j])
+        }
+        if (matrix[i + 1][j - 1] === true) {
+          arr.push(matrix[i + 1][j - 1])
+        }
+        if (matrix[i + 1][j + 1] === true) {
+          arr.push(matrix[i + 1][j + 1])
+        }
+      }
+      if(matrix[i][j - 1]) {
+        if(matrix[i][j - 1] === true) {
+          arr.push(matrix[i][j - 1])
+        }
+      }
+      if(matrix[i][j + 1]) {
+        if(matrix[i][j + 1] === true) {
+          arr.push(matrix[i][j + 1])
+        }
+      }
+
+      let l = arr.length;
+      if(board[i]){
+        board[i][j] = l
+      } else {
+        board[i] = []
+        board[i][j] = l
+      }
+    }
+  }
+
+  return board;
 }
 
 module.exports = {
