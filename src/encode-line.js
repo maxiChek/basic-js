@@ -31,9 +31,9 @@ function encodeLine( str ) {
       console.log(arrInterim, 'else')
     }
   }
-  let string = arrMain.map(el => `${el.length}` + `${el[0]}`).join('');
-  let total = string.split('').filter(el => el !== '1').join('');
-  console.log(strEnc, arrMain, string, total)
+  let line = arrMain.map(el => `${el.length}` + `${el[0]}`).join('');
+  let total = line.split('').filter(el => el !== '1').join('');
+  console.log(strEnc, arrMain, line, total)
   return total
 }
 
