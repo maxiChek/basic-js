@@ -9,8 +9,8 @@ const chainMaker = {
   getLength() {
     return this.chain.length;
   },
-  addLink(/* value */) {
-    this.chain.push(String(value));
+  addLink(value) {
+    this.chain.push(`( ${value} )`);
     return this;
   },
   removeLink(position) {
@@ -31,7 +31,7 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    const result = this.chain.map((item) => `( ${item} )`).join("~~");
+    const result = this.chain.join("~~");
     this.chain = [];
     return result;
   },
